@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Leaf } from 'lucide-react';
+
 
 export function LoadingScreen() {
   return (
