@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Ethereal Earth Design System */
+    --bg-primary-rgb: 252 249 244;
+    --brand-primary-rgb: 1 45 29;
+    --brand-secondary-rgb: 14 108 74;
+    --surface-container-rgb: 240 237 232;
+    --surface-container-low-rgb: 246 243 238;
+    --surface-container-highest-rgb: 229 226 221;
+    --on-surface-rgb: 28 28 25;
+    --on-surface-variant-rgb: 65 72 68;
+    --outline-rgb: 113 121 115;
+
+    --bg-primary: rgb(var(--bg-primary-rgb));
+    --brand-primary: rgb(var(--brand-primary-rgb));
+    --brand-secondary: rgb(var(--brand-secondary-rgb));
+    --surface-container: rgb(var(--surface-container-rgb));
+    --on-surface: rgb(var(--on-surface-rgb));
+    --on-surface-variant: rgb(var(--on-surface-variant-rgb));
+    --outline: rgb(var(--outline-rgb));
+    
+    /* Frosted Paper Glassmorphism */
+    --glass-bg: rgba(var(--bg-primary-rgb) / 0.8);
+    --glass-border: rgba(var(--outline-rgb) / 0.15);
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--on-surface)] antialiased;
+    font-family: 'Inter', sans-serif;
+    background-image: url("https://www.transparenttextures.com/patterns/recycled-paper.png");
+    background-repeat: repeat;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Newsreader', serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[var(--glass-bg)] backdrop-blur-2xl border border-[var(--glass-border)] rounded-[2rem] shadow-sm;
+  }
+
+  /* Bioluminescent Recovery Track Animation */
+  @keyframes marching-ants {
+    from { stroke-dashoffset: 200; }
+    to { stroke-dashoffset: 0; }
+  }
+
+  .marching-ants {
+    stroke-dasharray: 10, 10;
+    animation: marching-ants 12s linear infinite;
+    filter: drop-shadow(0 0 8px var(--brand-secondary));
+  }
+
+  .glow-sage {
+    box-shadow: 0 0 30px rgba(var(--brand-secondary-rgb) / 0.1);
+  }
+
+  .bioluminescent-glow {
+    @apply relative after:absolute after:inset-0 after:rounded-full after:bg-[rgb(var(--brand-secondary-rgb)/0.05)] after:blur-xl after:-z-10;
+  }
+  
+  .sidebar-link {
+    @apply flex items-center gap-3 px-6 py-4 rounded-3xl transition-all duration-500 text-[var(--on-surface-variant)] hover:text-[var(--brand-primary)] hover:bg-[rgb(var(--brand-primary-rgb)/0.05)];
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9375rem;
+  }
+  
+  .sidebar-link-active {
+    @apply text-[var(--brand-primary)] bg-[rgb(var(--brand-primary-rgb)/0.08)] font-semibold border-l-4 border-[var(--brand-primary)];
+  }
+
+  .btn-premium {
+    @apply px-8 py-4 bg-[var(--brand-primary)] text-white rounded-full font-semibold transition-all duration-500 hover:scale-105 active:scale-95 shadow-lg shadow-[rgb(var(--brand-primary-rgb)/0.2)];
+  }
+}
+
+/* Custom scrollbar for organic feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--outline-rgb) / 0.2);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--outline-rgb) / 0.4);
+}
