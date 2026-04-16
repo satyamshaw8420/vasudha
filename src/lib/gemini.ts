@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
-export const visionModel = genAI.getGenerativeModel({ 
+export const visionModel = genAI.getGenerativeModel({
   model: "gemini-2.5-flash",
   systemInstruction: `You are a Recycling Assistant for the Vashudha app. 
   Analyze images of waste and identify the material type, estimated weight, and recyclability.
@@ -37,10 +37,10 @@ export async function analyzeWaste(base64Image: string) {
         }
       }
     ]);
-    
+
     const response = await result.response;
     const text = response.text();
-    
+
     // Extract JSON from the potentially markdown-wrapped response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (jsonMatch) {

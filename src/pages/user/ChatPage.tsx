@@ -168,22 +168,20 @@ export default function ChatPage() {
                 <div className={`flex items-end gap-3 max-w-[80%] ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
                   {/* Avatar */}
                   <div
-                    className={`h-8 w-8 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                      msg.role === 'user'
-                        ? 'bg-[var(--brand-primary)] text-white'
-                        : 'bg-[var(--brand-secondary)]/15 text-[var(--brand-secondary)]'
-                    }`}
+                    className={`h-8 w-8 rounded-xl flex items-center justify-center flex-shrink-0 ${msg.role === 'user'
+                      ? 'bg-[var(--brand-primary)] text-white'
+                      : 'bg-[var(--brand-secondary)]/15 text-[var(--brand-secondary)]'
+                      }`}
                   >
                     {msg.role === 'user' ? <User size={14} /> : <Sparkles size={14} />}
                   </div>
 
                   {/* Bubble */}
                   <div
-                    className={`px-5 py-4 rounded-3xl text-sm leading-relaxed font-medium ${
-                      msg.role === 'user'
-                        ? 'bg-[var(--brand-primary)] text-white rounded-br-lg'
-                        : 'bg-white/80 text-[var(--brand-primary)] border border-[rgb(var(--outline-rgb)/0.08)] rounded-bl-lg shadow-sm'
-                    }`}
+                    className={`px-5 py-4 rounded-3xl text-sm leading-relaxed font-medium ${msg.role === 'user'
+                      ? 'bg-[var(--brand-primary)] text-white rounded-br-lg'
+                      : 'bg-white/80 text-[var(--brand-primary)] border border-[rgb(var(--outline-rgb)/0.08)] rounded-bl-lg shadow-sm'
+                      }`}
                   >
                     {msg.content}
                   </div>

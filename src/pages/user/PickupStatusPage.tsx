@@ -426,19 +426,29 @@ export default function PickupStatusPage() {
 
       {/* Quick CTA Banner */}
       <section>
-        <div className="bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] p-1 rounded-[3rem] shadow-2xl group active:scale-[0.99] transition-transform duration-500">
-          <div className="bg-[var(--surface-container-lowest)] rounded-[2.9rem] p-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-             <div className="space-y-2">
-                <h3 className="text-3xl font-bold text-[var(--brand-primary)] tracking-tight">Dealing with Bulky Recovery?</h3>
-                <p className="text-[var(--on-surface-variant)] font-medium max-w-sm">Schedule a specialized high-volume pickup for oversized materials.</p>
+        <div className="relative overflow-hidden bg-[var(--brand-primary)] p-[1px] rounded-[3rem] shadow-2xl group active:scale-[0.99] transition-transform duration-500">
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--brand-primary)] via-[var(--brand-secondary)] to-[var(--brand-primary)] opacity-50 bg-[length:200%_200%] animate-gradient-slow" />
+          <div className="relative bg-[#0a1f16]/95 backdrop-blur-3xl rounded-[2.9rem] p-10 md:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8 overflow-hidden z-10">
+             {/* Decorative glows inside the card */}
+             <div className="absolute -top-20 -right-20 w-80 h-80 bg-[var(--brand-secondary)]/30 rounded-full blur-[100px] pointer-events-none" />
+             <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-[var(--brand-primary)]/40 rounded-full blur-[100px] pointer-events-none" />
+
+             <div className="space-y-4 relative z-10 mix-blend-plus-lighter">
+                <h3 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/50 tracking-tight leading-tight">
+                  Dealing with Bulky Recovery?
+                </h3>
+                <p className="text-white/60 font-semibold max-w-md text-lg leading-relaxed">
+                  Schedule a specialized high-volume transport for oversized materials directly from your location.
+                </p>
              </div>
+             
              <Button 
                onClick={handleScheduleBulk}
                disabled={isRequesting}
-               className="h-20 px-10 rounded-full bg-[var(--brand-primary)] text-white font-bold group flex items-center gap-4 transition-all duration-500 hover:scale-[1.03] shadow-xl shadow-[rgb(var(--brand-primary-rgb)/0.3)] disabled:opacity-50"
+               className="h-16 px-10 rounded-full border border-white/20 bg-white/10 text-white font-black tracking-wide backdrop-blur-xl hover:bg-white hover:text-[var(--brand-primary)] transition-all duration-500 hover:scale-[1.05] hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] disabled:opacity-50 relative z-10 flex items-center gap-3 w-full md:w-auto justify-center"
              >
-                {isRequesting ? "Scheduling..." : "Initiate Bulk Recovery"} 
-                {!isRequesting && <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />}
+                {isRequesting ? "SCHEDULING ORBIT..." : "INITIATE BULK RECOVERY"} 
+                {!isRequesting && <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-500" />}
              </Button>
           </div>
         </div>

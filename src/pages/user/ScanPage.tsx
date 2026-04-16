@@ -1,11 +1,11 @@
 import { useRef, useState, useCallback } from 'react';
 import Webcam from 'react-webcam';
-import { 
-  Camera, 
-  RotateCcw, 
-  CheckCircle2, 
-  AlertCircle, 
-  Loader2, 
+import {
+  Camera,
+  RotateCcw,
+  CheckCircle2,
+  AlertCircle,
+  Loader2,
   Zap,
   ArrowRight,
   X
@@ -106,16 +106,16 @@ export default function ScanPage() {
         <div className="absolute inset-0 pointer-events-none">
           {/* Scanning Box Corners - Organic Style */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 border-2 border-[rgb(var(--brand-secondary-rgb)/0.15)] rounded-[3rem]">
-             <div className="absolute top-0 left-0 w-12 h-12 border-t-8 border-l-8 border-[var(--brand-secondary)] rounded-tl-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
-             <div className="absolute top-0 right-0 w-12 h-12 border-t-8 border-r-8 border-[var(--brand-secondary)] rounded-tr-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
-             <div className="absolute bottom-0 left-0 w-12 h-12 border-b-8 border-l-8 border-[var(--brand-secondary)] rounded-bl-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
-             <div className="absolute bottom-0 right-0 w-12 h-12 border-b-8 border-r-8 border-[var(--brand-secondary)] rounded-br-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-8 border-l-8 border-[var(--brand-secondary)] rounded-tl-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
+            <div className="absolute top-0 right-0 w-12 h-12 border-t-8 border-r-8 border-[var(--brand-secondary)] rounded-tr-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
+            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-8 border-l-8 border-[var(--brand-secondary)] rounded-bl-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-8 border-r-8 border-[var(--brand-secondary)] rounded-br-[2.5rem] shadow-[0_0_20px_var(--brand-secondary)]" />
           </div>
 
           {/* Molecular Pulse Animation */}
           {!capturedImage && (
-            <motion.div 
-              animate={{ 
+            <motion.div
+              animate={{
                 top: ['30%', '70%', '30%'],
                 scaleX: [0.8, 1, 0.8],
                 opacity: [0.3, 0.8, 0.3]
@@ -128,7 +128,7 @@ export default function ScanPage() {
           {/* Bioluminescent Particles (Aesthetic) */}
           <AnimatePresence>
             {!capturedImage && (
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.1 }}
                 className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_var(--brand-secondary)_0%,_transparent_100%)]"
@@ -142,7 +142,7 @@ export default function ScanPage() {
       <div className="relative z-10 w-full max-w-lg mt-auto pb-10 px-8">
         <AnimatePresence mode="wait">
           {isAnalyzing ? (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -30 }}
@@ -163,7 +163,7 @@ export default function ScanPage() {
               </div>
             </motion.div>
           ) : result ? (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="glass-card p-8 space-y-8 glow-sage"
@@ -196,7 +196,7 @@ export default function ScanPage() {
 
               <div className="bg-[rgb(var(--brand-secondary-rgb)/0.05)] p-6 rounded-[2rem] border border-[var(--brand-secondary)]/10 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-45 transition-transform duration-1000">
-                   <Zap size={60} />
+                  <Zap size={60} />
                 </div>
                 <div className="flex items-center gap-2 text-sm font-bold text-[var(--brand-secondary)] mb-2 uppercase tracking-widest">
                   <Zap size={18} /> Vasu AI Insight
@@ -209,14 +209,13 @@ export default function ScanPage() {
                 </p>
               </div>
 
-              <Button 
+              <Button
                 onClick={handleLogWaste}
                 disabled={result.credits === 0}
-                className={`w-full h-16 shadow-xl rounded-full text-lg font-bold group transition-all duration-500 ${
-                  result.credits > 0
+                className={`w-full h-16 shadow-xl rounded-full text-lg font-bold group transition-all duration-500 ${result.credits > 0
                     ? 'bg-[var(--brand-primary)] text-white shadow-[rgb(var(--brand-primary-rgb)/0.2)] hover:scale-[1.02] active:scale-[0.98]'
                     : 'bg-[var(--outline)]/10 text-[var(--outline)] hover:scale-100 cursor-not-allowed'
-                }`}
+                  }`}
               >
                 {result.credits > 0 ? (
                   <>
@@ -228,10 +227,10 @@ export default function ScanPage() {
               </Button>
             </motion.div>
           ) : error ? (
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.9 }}
-               animate={{ opacity: 1, scale: 1 }}
-               className="glass-card p-10 border-red-500/10 text-center space-y-6"
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="glass-card p-10 border-red-500/10 text-center space-y-6"
             >
               <div className="h-20 w-20 bg-red-500/10 rounded-full flex items-center justify-center mx-auto text-red-500">
                 <AlertCircle size={48} />
@@ -247,10 +246,10 @@ export default function ScanPage() {
           ) : (
             <div className="flex flex-col items-center gap-8">
               <div className="text-center space-y-2">
-                 <h2 className="text-2xl font-bold text-white tracking-tight">Align Waste in Frame</h2>
-                 <p className="text-white/60 text-sm font-medium tracking-wide">Vasu AI is ready to detect molecular patterns</p>
+                <h2 className="text-2xl font-bold text-white tracking-tight">Align Waste in Frame</h2>
+                <p className="text-white/60 text-sm font-medium tracking-wide">Vasu AI is ready to detect molecular patterns</p>
               </div>
-              <button 
+              <button
                 onClick={capture}
                 className="h-24 w-24 rounded-full border-4 border-white/30 p-2 group transition-all duration-500 active:scale-95 hover:border-white/50"
               >
